@@ -1,13 +1,10 @@
 import random
 
-def get_deck(deck_num, shuffle=True):
-    d = list(range(1, 10)) + [10, 10, 10, 10]
-    single_deck = []
-    for i in range(4):
-        single_deck += d
-    deck = []
-    for i in range(deck_num):
-        deck += single_deck
+def get_deck(deck_num, shuffle=True, remove=[]):
+    x = list(range(1, 10)) + [10, 10, 10, 10]
+    deck = x * 4 * deck_num
+    for i in remove:
+        deck.remove(i)
     if shuffle:
         random.shuffle(deck)
     return deck
